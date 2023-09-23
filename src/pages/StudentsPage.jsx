@@ -7,7 +7,6 @@ const StudentsPage = () => {
   
   const [allProducts, setAllProducts] = useState([]);
   const [searchText, setsearchText] = useState("");
-  const [loading, setLoading] = useState(false)
 
 
   const columns = [
@@ -56,19 +55,17 @@ const StudentsPage = () => {
    useEffect(() => {
     const fetchData = async () => {
       try {
-          setLoading(true)
         const categoriesResponse = await request.get("/categories");
         const categoriesData = categoriesResponse.data;
 
         const promises = categoriesData.map((category) => {
           return request.get(`categories/${category.id}/products`);
         });
-        setLoading(false)
 
         const productLists = await Promise.all(promises);
 
         const allProducts = productLists.flatMap((el) => el.data);
-        message.log(allProducts);
+        message.error(allProducts);
 
         setAllProducts(allProducts);
       } catch (error) {
@@ -83,7 +80,6 @@ const StudentsPage = () => {
     <Fragment>
       <div className="ant-layout-content">
         <Table
-        loading={loading}
           bordered
           title={() => (
             <div
