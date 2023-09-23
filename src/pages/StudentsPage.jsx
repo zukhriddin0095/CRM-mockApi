@@ -5,7 +5,7 @@ import {  Table, message } from "antd";
 
 const StudentsPage = () => {
   
-  const [allStudents, setallStudents] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
   const [searchText, setsearchText] = useState("");
   const [loading, setLoading] = useState(false)
 
@@ -47,7 +47,7 @@ const StudentsPage = () => {
       title: "isMarried",
       key: "isMarried",
       dataIndex: "isMarried",
-      render: (allStudents) => (allStudents ? "yes" : "no"),
+      render: (allProducts) => (allProducts ? "yes" : "no"),
     },
   ];
 
@@ -63,14 +63,14 @@ const StudentsPage = () => {
         const promises = categoriesData.map((category) => {
           return request.get(`categories/${category.id}/products`);
         });
-        
-        const studentsLists = await Promise.all(promises);
         setLoading(false)
 
-        const allStudents = studentsLists.flatMap((el) => el.data);
-        message.log(allStudents);
+        const productLists = await Promise.all(promises);
 
-        setallStudents(allStudents);
+        const allProducts = productLists.flatMap((el) => el.data);
+        message.log(allProducts);
+
+        setAllProducts(allProducts);
       } catch (error) {
         message.error(`Xatolik sodir bo'ldi: ${error}`);
       }
@@ -83,7 +83,7 @@ const StudentsPage = () => {
     <Fragment>
       <div className="ant-layout-content">
         <Table
-          loading={loading}
+        loading={loading}
           bordered
           title={() => (
             <div
@@ -93,7 +93,7 @@ const StudentsPage = () => {
                 alignItems: "center",
               }}
             >
-              <h1>Students({allStudents.length})</h1>
+              <h1>Students({allProducts.length})</h1>
               <input
                 placeholder="searching ...."
                 style={{
@@ -110,7 +110,7 @@ const StudentsPage = () => {
             </div>
           )}
           columns={columns}
-          dataSource={allStudents}
+          dataSource={allProducts}
           rowKey={(record) => record.id}
         />
         ;
