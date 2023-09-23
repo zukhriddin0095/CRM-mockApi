@@ -1,0 +1,23 @@
+
+
+.loginPage {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/public/lion2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.loginPage__form {
+  padding: 50px;
+  border: 1px solid #888;
+  border-radius: 30px;
+  backdrop-filter: blur(2px);
+}
+
+#basic_email {
+  color: aliceblue;
+  background: transparent;
+}

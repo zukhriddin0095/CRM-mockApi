@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+
+#basic_password {
+  color: aliceblue;
+  background: transparent;
+}
+:where(.css-dev-only-do-not-override-1vr7spz).ant-input-affix-wrapper {
+  color: aliceblue;
+  background: transparent;
+}
+:where(.css-dev-only-do-not-override-1vr7spz).ant-input-affix-wrapper .anticon.ant-input-password-icon {
+  color: aliceblue;
+}
+:where(.css-dev-only-do-not-override-1vr7spz).ant-form-item .ant-form-item-label >label {
+  color: #fff;
+}
+
+.admin-layout {
+  height: 100vh;
+  .ant-layout-content {
+  padding: 20px;
+
+    height: calc(100vh - 64px);
+    overflow: auto;
+  }
+}
+
+::-webkit-scrollbar {
+  background: #d7d7d7;
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.button__control {
+  padding: 5px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  background: transparent;
+  cursor: pointer;
+  transition: .3s;
+  &:hover {
+    background: rgb(201, 201, 201);
+  }
+}
+.anticon {
+    font-size: 20px;
+  }
+  .anticon-edit {
+    color: #0e9100;
+  }
+  .anticon-delete {
+    color: rgb(255, 38, 0);
+  }
+.anticon-user-switch {
+    color: #001d91;
+  }
+.addButton {
+  &:hover {
+    background: #8aedff;
+  }
+}
+
+:where(.css-dev-only-do-not-override-1vr7spz).ant-modal .ant-modal-content  {
+  background: #adadad;
+}
